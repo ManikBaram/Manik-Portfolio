@@ -1,16 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Experience Section</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #fff;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
       color: #1a1a1a;
     }
 
@@ -18,93 +18,124 @@
       max-width: 1536px;
       margin: auto;
       padding: 4rem 1rem;
+      text-align: center;
     }
 
     .experience h1 {
-      text-align: left;
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+      color: #679d38ff;
+    }
+
+    .experience h1::after {
+      content: "";
+      display: block;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, #d62828, #f77f00);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      justify-items: center;
       max-width: 1000px;
       margin: auto;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    @media (min-width: 768px) {
-      .skills-grid {
-        grid-template-columns: repeat(5, 1fr);
-      }
-    }
-
+    /* Skill Cards */
     .skill-card {
       width: 150px;
       height: 150px;
-      margin: auto;
       padding: 0.5rem;
       border: 2px solid #d1d5db;
       border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      background: #fff;
+      transition: all 0.4s ease;
+      animation: float 3s ease-in-out infinite;
     }
 
     .skill-card:hover {
-      transform: scale(1.1);
+      transform: scale(1.15);
+      border-color: #d62828;
+      box-shadow: 0 6px 18px rgba(214,40,40,0.3);
     }
 
     .skill-card img {
       width: 70px;
       height: 70px;
       border-radius: 60%;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover img {
+      transform: rotate(10deg) scale(1.1);
     }
 
     .skill-card div {
       margin-top: 0.5rem;
       font-weight: bold;
       text-align: center;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <section class="experience">
-      <h1>Skill</h1>
+      <h1>My Skills</h1>
       <div class="skills-grid">
         <div class="skill-card">
-          <img src="static\img\html.jpg" alt="HTML logo">
-          <div>Html</div>
+          <img src="static/img/html.jpg" alt="HTML logo">
+          <div>HTML</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\css.png" alt="CSS logo">
+          <img src="static/img/css.png" alt="CSS logo">
           <div>CSS</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\js.jpg" alt="JavaScript logo">
+          <img src="static/img/js.jpg" alt="JavaScript logo">
           <div>JavaScript</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\mongodb.jpg" alt="MongoDB logo">
+          <img src="static/img/mongodb.jpg" alt="MongoDB logo">
           <div>MongoDB</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\oracle-removebg-preview.png" alt="Oracle logo">
+          <img src="static/img/oracle-removebg-preview.png" alt="Oracle logo">
           <div>Oracle</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\react.png" alt="React logo">
+          <img src="static/img/react.png" alt="React logo">
           <div>React</div>
         </div>
         <div class="skill-card">
-          <img src="static\img\python.png" alt="Python logo">
+          <img src="static/img/python.png" alt="Python logo">
           <div>Python</div>
         </div>
       </div>

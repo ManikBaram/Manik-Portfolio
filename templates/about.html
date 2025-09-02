@@ -1,42 +1,56 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About</title>
-
-  <!-- TailwindCSS CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Typing animation */
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #22c55e;
+      animation: typing 3s steps(30, end), blink 0.7s step-end infinite;
+      display: inline-block;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-900">
-  <div class="max-w-screen-2xl container mx-auto px-4 md:px-20 my-20">
-    <div>
-      <h1 class="text-3xl font-bold mb-5">About</h1>
-      <p>
-       I'm Manik, a Full Stack Web Developer passionate about creating impactful and visually appealing software solutions.
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white font-sans">
+
+  <!-- About Me Section -->
+  <div class="min-h-screen flex items-center justify-center px-6 text-center">
+    <div class="max-w-3xl fade-in">
+      <h1 class="text-5xl font-extrabold mb-6 text-green-400">About Me</h1>
+      <p class="typing text-xl font-medium text-gray-300 mb-6">
+        Hi, I'm Manik — Full Stack Web Developer
       </p>
-      <br />
-
-      <h1 class="text-green-600 font-semibold text-xl">Education & Training</h1>
-      <span>
-        [Bachelor of computer application], [vidyasagar University], [2025] [BCA],
-       
-      </span>
-      <br /><br />
-
-      <h1 class="text-green-600 font-semibold text-xl">Skills </h1>
-      <span>
-      Skilled in programming, familiar with modern tools and technologies, good at design concepts, problem-solving, and teamwork.
-      </span>
-      <br /><br />
-
-      
-
-      
-
-    
+      <p class="text-lg leading-relaxed text-gray-400">
+        I’m passionate about creating <span class="text-green-400 font-semibold">modern web applications</span> 
+        with clean design, smooth performance, and a strong focus on 
+        <span class="text-green-400 font-semibold">UI/UX</span>.  
+        I love solving complex problems, experimenting with new technologies, 
+        and turning ideas into impactful digital solutions.
+      </p>
     </div>
   </div>
+
 </body>
 </html>
-

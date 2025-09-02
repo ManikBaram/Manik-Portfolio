@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,76 +7,73 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      
     }
-     html {
-    scroll-behavior: smooth;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
+    .menu-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
     /* Navbar container */
     .navbar {
-      max-width: 1536px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      height: 64px;
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      z-index: 50;
-    }
+  display: flex;
+  justify-content: space-between; /* ✅ Forces logo left, menu button right */
+  align-items: center;
+  padding: 0 1rem;
+  height: 64px;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 50;
+}
 
-    /* Logo & text */
+    /* Logo */
     .logo {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       cursor: pointer;
-    }
-
-    .logo img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+      /* flex: 1; ❌ এটা সরানো হয়েছে */
     }
 
     .logo h1 {
       font-size: 1.25rem;
       margin: 0;
       font-weight: 600;
+      color: black;
+      user-select: none;
     }
 
     .logo span {
       color: green;
       font-size: 1.5rem;
-    }
-
-    .logo p {
-      font-size: 0.85rem;
-      margin: 0;
+      user-select: none;
     }
 
     /* Desktop menu */
     .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.menu-wrapper {
+  margin-left: auto; /* ✅ pushes menu button all the way right */
+}
+
+    .nav-links li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
 
-    .nav-links li {
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .nav-links li:hover {
-      transform: scale(1.05);
+    .nav-links li a:hover {
+      color: #16a34a;
     }
 
     /* Mobile menu button */
@@ -85,8 +81,10 @@
       display: none;
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       cursor: pointer;
+      color: black;
+      /* ✅ সবসময় ডানদিকে যাবে */
     }
 
     /* Mobile menu */
@@ -100,93 +98,105 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: white;
+      background: rgba(45, 49, 48, 0.95);
       gap: 1.5rem;
       font-size: 1.25rem;
       font-weight: 600;
+      color: white;
+      z-index: 49;
+      padding: 2rem 0;
+      overflow-y: auto;
+      animation: fadeInMenu 0.3s ease forwards;
     }
 
-    .mobile-menu li {
-      list-style: none;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .mobile-menu li:hover {
-      transform: scale(1.05);
+    @keyframes fadeInMenu {
+      from { opacity: 0; transform: translateY(-10%); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .menu-btn {
-        display: block;
-      }
+     .nav-links {
+    display: none !important; /* Hide desktop menu */
+  }
+  .menu-btn {
+    display: block !important; /* ✅ show hamburger on mobile */
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: black;
+    transition: transform 0.2s ease;
+  }
+
+    }
+
+    /* Download CV button */
+    .download-btn {
+      background-color: #ea580c;
+      color: white;
+      font-weight: 700;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .download-btn:hover {
+      background-color: #c2410c;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
 
-  <div class="navbar">
+  <nav class="navbar">
     <div class="logo">
-      
-      <div>
-        <h1>Mani<span>k</span></h1>
-        
-      </div>
+      <h1>Mani<span>k</span></h1>
     </div>
 
-    <ul class="nav-links">
-         <li><a class="hover:text-green-600 transition-colors" href="#home">Home</a></li>
-        <li><a class="hover:text-green-600 transition-colors" href="#about">About</a></li>
-        <li><a class="hover:text-green-600 transition-colors" href="#skill">skill</a></li>
-        <li><a class="hover:text-green-600 transition-colors" href="#project">Project</a></li>
-        <li><a class="hover:text-green-600 transition-colors" href="#contact">Contact</a></li>
-       <li><button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-full shadow-md transition transform hover:scale-105" id="downloadBtn">
-       Download CV
-      </button>
-      </li>
-    </ul>
-
+     <div class="menu-wrapper">
     <button class="menu-btn" id="menuToggle">☰</button>
   </div>
 
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skill">Skill</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="download-btn">Download CV</button></li>
+    </ul>
+  </nav>
+
   <ul class="mobile-menu" id="mobileMenu">
-    <li><a class="hover:text-green-600 transition-colors" href="#home">Home</a></li>
-    <li><a class="hover:text-green-600 transition-colors" href="#about">About</a></li>
-    <li><a class="hover:text-green-600 transition-colors" href="#skill">skill</a></li>
-    <li><a class="hover:text-green-600 transition-colors" href="#project">Project</a></li>
-    <li><a class="hover:text-green-600 transition-colors" href="#contact">Contact</a></li>
-    
-     <li><button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-full shadow-md transition transform hover:scale-105" id="downloadBtn">
-       Download CV
-      </button>
-      </li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skill">Skill</a></li>
+    <li><a href="#project">Project</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button class="download-btn">Download CV</button></li>
   </ul>
 
   <script>
     const menuBtn = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  let menuOpen = false;
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
 
-  // Toggle button
-  menuBtn.addEventListener('click', () => {
-    menuOpen = !menuOpen;
-    mobileMenu.style.display = menuOpen ? 'flex' : 'none';
-    menuBtn.textContent = menuOpen ? '✖' : '☰';
-  });
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      mobileMenu.style.display = menuOpen ? 'flex' : 'none';
+      menuBtn.textContent = menuOpen ? '✖' : '☰';
+    }
+    menuBtn.addEventListener('click', toggleMenu);
 
-  // Close menu when clicking a link
-  const menuLinks = mobileMenu.querySelectorAll('a');
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.style.display = 'none';
-      menuBtn.textContent = '☰';
-      menuOpen = false;
+    mobileMenu.querySelectorAll('a, button').forEach(link => {
+      link.addEventListener('click', () => {
+        if (menuOpen) toggleMenu();
+      });
     });
-  });
   </script>
 
 </body>
