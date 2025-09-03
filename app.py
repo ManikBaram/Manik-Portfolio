@@ -4,7 +4,7 @@ import string
 app= Flask(__name__)
 
 
-@app.route("/")
+@app.route("/",methods=["GET", "HEAD"])
 def index():
     return render_template(
         "base.html"
